@@ -41,6 +41,16 @@ def format_memory_size(bytes_size: int) -> str:
     return f"{bytes_size} Bytes"
 
 
+# Получить сколько времени прошло с момента запуска системы:
+def format_uptime() -> str:
+    with open("/proc/uptime", "r") as f:
+        uptime_seconds = float(f.readline().split()[0])
+    minutes, seconds = divmod(int(uptime_seconds), 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    return f"{days:02}:{hours:02}:{minutes:02}:{seconds:02}"
+
+
 # Глобальные переменные сети:
 class NetVars:
     # Название сетей для отслеживания:
