@@ -33,11 +33,7 @@ header {
     font-size: 32px;
 }
 
-#timestamp {
-    font-size: 14px;
-}
-
-#timestamp-val {
+.other * {
     font-size: 14px;
 }
 
