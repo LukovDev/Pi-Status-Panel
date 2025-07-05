@@ -107,7 +107,7 @@ INTERFACE_LANG = {
         # Интернет:
         "network":              "Сеть",
         "net-properties":       "Свойства:",
-        "net-receive-bs":       "Получать:",
+        "net-receive-bs":       "Получено:",
         "net-transmit-bs":      "Отправка:",
         "net-receive-total-b":  "Получено всего:",
         "net-transmit-total-b": "Отправлено всего:",
