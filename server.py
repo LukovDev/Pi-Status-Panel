@@ -114,6 +114,7 @@ INTERFACE_LANG = {
         "net-receive-max-b":    "Получено в пике:",
         "net-transmit-max-b":   "Отправлено в пике:",
 
+        "system-uptime":        "Время работы:",
         "timestamp":            "Последнее время обновления информации:",
     },
     "other": {
@@ -188,6 +189,7 @@ async def index(request: Request) -> Response:
             "wifi-rx-max-b-val":      format_memory_size(get_wifi_max_rx_bs()),
             "wifi-tx-max-b-val":      format_memory_size(get_wifi_max_tx_bs()),
 
+            "system-uptime-val":      format_uptime(),
             "timestamp-val":          datetime.now().strftime("%d.%m.%Y %H:%M:%S"),
         },
         "other": {
