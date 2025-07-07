@@ -212,7 +212,7 @@ async def index(request: Request) -> Response:
 
 
 """
-    < PiStatusPanel >
+    < Pi-Status-Panel >
     By LukovDev (@mr_lukov).
     License: MIT
     lakuworx@gmail.com

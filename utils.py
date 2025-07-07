@@ -38,7 +38,7 @@ def format_memory_size(bytes_size: int) -> str:
         if size < 1024:
             return f"{round(size, 2)} {unit}"
         size /= 1024
-    return f"{bytes_size} Bytes"
+    return f"{bytes_size} B"
 
 
 # Получить сколько времени прошло с момента запуска системы:
@@ -312,42 +312,33 @@ def get_gpu_min_freq() -> str:
 
 # Получить сколько свободно пространства в оперативной памяти в байтах:
 def get_ram_free_size() -> int:
-    return int(_read_meminfo_().get('MemAvailable', 0)*1024)
+    return int(_read_meminfo_().get("MemAvailable", 0)*1024)
 
 
 # Получить сколько занято пространства в оперативной памяти в байтах:
 def get_ram_used_size() -> int:
     info = _read_meminfo_()
-    return int((info.get('MemTotal', 0)-info.get('MemAvailable', 0))*1024)
+    return int((info.get("MemTotal", 0)-info.get("MemAvailable", 0))*1024)
 
 
 # Получить сколько всего пространства в оперативной памяти в байтах:
 def get_ram_total_size() -> int:
-    return int(_read_meminfo_().get('MemTotal', 0)*1024)
+    return int(_read_meminfo_().get("MemTotal", 0)*1024)
 
 
 # Получить сколько свободного пространства в хранилище в байтах:
 def get_storage_free_size() -> int|str:
-    try:
-        return int(get_cmd_result("df --output=avail -B1 / | tail -n1"))
-    except Exception:
-        return "n/a"
+    return psutil.disk_usage("/").free
 
 
 # Получить сколько занято пространства в хранилище в байтах:
 def get_storage_used_size() -> int|str:
-    try:
-        return int(get_cmd_result("df --output=used -B1 / | tail -n1"))
-    except Exception:
-        return "n/a"
+    return psutil.disk_usage("/").used
 
 
 # Получить сколько всего пространства в хранилище в байтах:
 def get_storage_total_size() -> int|str:
-    try:
-        return int(get_cmd_result("df --output=size -B1 / | tail -n1"))
-    except Exception:
-        return "n/a"
+    return psutil.disk_usage("/").total
 
 
 # Чтение с диска (B/s)
@@ -421,7 +412,7 @@ def get_wifi_max_tx_bs() -> int:
 
 
 """
-    < PiStatusPanel >
+    < Pi-Status-Panel >
     By LukovDev (@mr_lukov).
     License: MIT
     lakuworx@gmail.com

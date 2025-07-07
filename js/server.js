@@ -230,7 +230,7 @@ function init_websize() {
 
 
 /*
-    < PiStatusPanel >
+    < Pi-Status-Panel >
     By LukovDev (@mr_lukov).
     License: MIT
     lakuworx@gmail.com
