@@ -230,6 +230,14 @@ def get_uart_freq() -> str:
         return "n/a"
 
 
+# Получить загруженность вентилятора от 0 до 100%:
+def get_fan_percent() -> str:
+    try:
+        return str(round(int(get_cmd_result("cat /sys/class/hwmon/hwmon*/pwm1"))/255*100, 2))
+    except Exception:
+        return "n/a"
+
+
 # Получить архитектуру процессора:
 def get_arch() -> str:
     return get_cmd_result("uname -m")

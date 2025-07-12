@@ -76,6 +76,7 @@ INTERFACE_LANG = {
         "h264-freq":     "Частота H264:",
         "isp-freq":      "Частота ISP:",
         "uart-freq":     "Частота UART:",
+        "fan-percent":   "Вентилятор:",
 
         # Процессор:
         "cpu":           "Процессор",
@@ -151,6 +152,7 @@ async def index(request: Request) -> Response:
             "h264-freq-val":          get_h264_freq(),
             "isp-freq-val":           get_isp_freq(),
             "uart-freq-val":          get_uart_freq(),
+            "fan-percent-val":        get_fan_percent(),
 
             "arch-val":               get_arch(),
             "cpu-bits-val":           get_cpu_bits(),
