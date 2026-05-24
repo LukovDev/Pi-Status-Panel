@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico?v=080720250135">
-        <link rel="stylesheet"    type="text/css"     href="styles/index.css?v=080720250135">
-        <script                                        src="js/server.js?v=080720250135"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico?v=24052026222530">
+        <link rel="stylesheet"    type="text/css"     href="styles/index.css?v=24052026222530">
+        <script                                        src="js/server.js?v=24052026222530"></script>
         <title>Raspberry Pi Status</title>
     </head>
     <body>
@@ -302,11 +302,12 @@
 
             <div class="button">
                 <div class="title" id="management">Management:</div>
-                <div class="inline">
-                    <button id="button-power-off" onclick="sendJsonPost('/api/control', {'control': 'poweroff'})">
+                <div class="button-row">
+                    <button id="button-power-off" onclick="confirmControl('poweroff')">
                         Power OFF
                     </button>
-                    <button id="button-reboot" onclick="sendJsonPost('/api/control', {'control': 'reboot'})">
+
+                    <button id="button-reboot" onclick="confirmControl('reboot')">
                         Reboot
                     </button>
                 </div>

@@ -16,6 +16,23 @@ function sendJsonPost(url, data) {
 }
 
 
+function confirmControl(action) {
+    let text = "";
+
+    if (action === "poweroff") {
+        text = "Are you sure you want to POWER OFF?";
+    } else if (action === "reboot") {
+        text = "Are you sure you want to REBOOT?";
+    }
+
+    if (confirm(text)) {
+        sendJsonPost("/api/control", {
+            "control": action
+        });
+    }
+}
+
+
 // Обновить все элементы по айди с Json данных:
 function updateElementsFromJson(data) {
     for (const [className, text] of Object.entries(data["classes"])) {
