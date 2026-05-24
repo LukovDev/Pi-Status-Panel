@@ -147,8 +147,8 @@ async def index(request: Request) -> Response:
     # Например введите "sudo visudo", далее в самом конце пропишите:
     # "ВашеИмяПользователя ALL=(ALL) NOPASSWD: /usr/sbin/poweroff, /usr/sbin/reboot"
     # далее сохраните и готово.
-    if data["control"] == "poweroff": os.system("poweroff")
-    if data["control"] == "reboot":   os.system("reboot")
+    if data["control"] == "poweroff": os.system("sudo poweroff")
+    if data["control"] == "reboot":   os.system("sudo reboot")
 
     return JSONResponse({}, 200)
 
