@@ -300,6 +300,20 @@
 
             <div class="separator"></div>
 
+            <div class="button">
+                <div class="title" id="management">Management:</div>
+                <div class="inline">
+                    <button id="button-power-off" onclick="sendJsonPost('/api/control', {'control': 'poweroff'})">
+                        Power OFF
+                    </button>
+                    <button id="button-reboot" onclick="sendJsonPost('/api/control', {'control': 'reboot'})">
+                        Reboot
+                    </button>
+                </div>
+            </div>
+
+            <div class="separator"></div>
+
             <div class="other">
                 <div class="inline">
                     <div id="system-uptime">Working time:</div>
@@ -348,7 +362,7 @@
         < Pi-Status-Panel >
         By LukovDev (@mr_lukov).
         License: MIT
-        lakuworx@gmail.com
+        kukovdev@gmail.com
 
         Thank you for Using!
     -->

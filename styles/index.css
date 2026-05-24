@@ -28,6 +28,52 @@ header {
     font-size: 32px;
 }
 
+button {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-width: 0px;
+    border-radius: 16px;
+    padding: 16px 16px;
+    margin: 0px 32px;
+    transition: background-color 0.1s ease; 
+}
+
+button:hover {
+    background-color: rgb(192, 192, 192);
+}
+
+button:active {
+    background-color: rgb(128, 128, 128);
+}
+
+#button-power-off {
+    background-color: rgb(255, 16, 16);
+    color: rgb(255, 255, 255);
+}
+
+#button-power-off:hover {
+    background-color: rgb(255, 92, 92);
+}
+
+#button-power-off:active {
+    background-color: rgb(192, 32, 32);
+}
+
+#button-reboot {
+    background-color: rgb(255, 128, 16);
+    color: rgb(255, 255, 255);
+}
+
+#button-reboot:hover {
+    background-color: rgb(255, 192, 92);
+}
+
+#button-reboot:active {
+    background-color: rgb(192, 92, 32);
+}
+
 #header-title {
     font-family: "montserrat-medium";
     font-size: 32px;

@@ -12,6 +12,7 @@
 
 
 # Импортируем:
+import os
 from utils import *
 from threading import Thread
 from datetime import datetime
@@ -115,6 +116,10 @@ INTERFACE_LANG = {
         "net-receive-max-b":    "Получено в пике:",
         "net-transmit-max-b":   "Отправлено в пике:",
 
+        "management":           "Управление:",
+        "button-power-off":     "Выключить",
+        "button-reboot":        "Перезагрузить",
+
         "system-uptime":        "Время работы:",
         "timestamp":            "Последнее время обновления информации:",
     },
@@ -133,10 +138,25 @@ async def index(request: Request) -> Response:
     return HTMLResponse(page, 200)
 
 
+# Обработать команды управления:
+@app.post("/api/control")
+async def index(request: Request) -> Response:
+    data = await request.json()
+
+    # Для этого вам надо сделать чтобы эти команды выполнялись без пароля:
+    # Например введите "sudo visudo", далее в самом конце пропишите:
+    # "ВашеИмяПользователя ALL=(ALL) NOPASSWD: /usr/sbin/poweroff, /usr/sbin/reboot"
+    # далее сохраните и готово.
+    if data["control"] == "poweroff": os.system("poweroff")
+    if data["control"] == "reboot":   os.system("reboot")
+
+    return JSONResponse({}, 200)
+
+
+# Обработать статус:
 @app.post("/api/status")
 async def index(request: Request) -> Response:
     data = await request.json()
-    # print("Получены данные:", data)
 
     # Статус системы:
     status = {
